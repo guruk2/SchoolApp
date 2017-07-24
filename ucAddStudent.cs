@@ -17,15 +17,18 @@ namespace SchoolApp
         static string connectionString = ConfigurationManager.ConnectionStrings["SchoolApp.Properties.Settings.Setting"].ConnectionString;
         private OleDbConnection connection = new OleDbConnection(connectionString);
         Dictionary<int, string> myDictionary = new Dictionary<int, string>();
+        Dictionary<int, string> myDictionary5 = new Dictionary<int, string>();
+                   // SortedDictionary<string, int> userCache = new SortedDictionary<string, int>();
+        private readonly BindingList<Cast> recentlyAddedUsers = new BindingList<Cast>();
+
         string picPath;
         public ucAddStudent()
         {
+            
             InitializeComponent();
-            this.Refresh();
-            Application.DoEvents();
-
+            
         }
-
+       
         private void metroLabel3_Click(object sender, EventArgs e)
         {
 
@@ -75,10 +78,11 @@ namespace SchoolApp
 
         private void ucAddStudent_Load(object sender, EventArgs e)
         {
-            
-            MessageBox.Show("hi");
+
+           
             try
             {
+            
                 connection.Open();
                 OleDbCommand command1 = new OleDbCommand();
                 command1.Connection = connection;
@@ -86,6 +90,7 @@ namespace SchoolApp
                 command1.CommandText = clas;
                 OleDbDataReader reader = command1.ExecuteReader();
                 Dictionary<string, string> myDictionary = new Dictionary<string, string>();
+
                 while (reader.Read())
                 {
                     myDictionary.Add(reader.GetString(0), reader.GetString(1));
@@ -93,6 +98,7 @@ namespace SchoolApp
                     com_class.DisplayMember = "Value";
                     com_class.ValueMember = "Key";
                 }
+
 
                 OleDbCommand command2 = new OleDbCommand();
                 command2.Connection = connection;
@@ -135,27 +141,58 @@ namespace SchoolApp
                     com_Religion.DisplayMember = "Value";
                     com_Religion.ValueMember = "Key";
                 }
-
-                OleDbCommand command5 = new OleDbCommand();
-                command5.Connection = connection;
-                string clas5 = "Select [CastID] , [CastName] from [Cast]";
-                command5.CommandText = clas5;
-                OleDbDataReader reader5 = command5.ExecuteReader();
-                Dictionary<int, string> myDictionary5 = new Dictionary<int, string>();
-                while (reader5.Read())
-                {
-                    myDictionary5.Add(reader5.GetInt32(0), reader5.GetString(1));
-                    com_Cast.DataSource = new BindingSource(myDictionary5, null);
-                    com_Cast.DisplayMember = "Value";
-                    com_Cast.ValueMember = "Key";
-                }
-
+                com_Religion.Refresh();
+             
                 connection.Close();
             }
             catch(OleDbException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            
+            Load1();
         }
+
+        private void com_Cast_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        public void Load1()
+        {
+            List<Cast> queryResults = new List<Cast>();
+            // Get a list of recently added users from the database.
+            connection.Open();
+            OleDbCommand command5 = new OleDbCommand();
+            command5.Connection = connection;
+            string clas5 = "Select [CastID] , [CastName] from [Cast]";
+            command5.CommandText = clas5;
+            using (var myReader = command5.ExecuteReader())
+            {
+                while (myReader.Read())
+                {
+                    queryResults.Add(new Cast
+                    {
+                        Id = Convert.ToString(myReader.GetInt32(myReader.GetOrdinal("CastID"))),
+                        Name = myReader.GetString(myReader.GetOrdinal("CastName"))
+                    });
+                }
+            }
+
+            this.comboBox1.DataSource = queryResults;
+
+            this.comboBox1.ValueMember = "Id";
+            this.comboBox1.DisplayMember = "Name";
+            connection.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+    
+        
     }
+
 }

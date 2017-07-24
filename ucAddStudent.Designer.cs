@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -90,6 +91,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.com_Cast = new MetroFramework.Controls.MetroComboBox();
+            this.castBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet = new SchoolApp.DatabaseDataSet();
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
@@ -98,6 +101,10 @@
             this.metroLabel32 = new MetroFramework.Controls.MetroLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.com_Section = new MetroFramework.Controls.MetroComboBox();
+            this.castTableAdapter = new SchoolApp.DatabaseDataSetTableAdapters.CastTableAdapter();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.castBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -993,6 +1000,10 @@
             // 
             // com_Cast
             // 
+            this.com_Cast.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.castBindingSource, "CastName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.com_Cast.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.castBindingSource, "CastID", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.com_Cast.DataSource = this.castBindingSource;
+            this.com_Cast.DisplayMember = "CastName";
             this.com_Cast.FormattingEnabled = true;
             this.com_Cast.ItemHeight = 23;
             this.com_Cast.Location = new System.Drawing.Point(1158, 371);
@@ -1000,6 +1011,18 @@
             this.com_Cast.Size = new System.Drawing.Size(121, 29);
             this.com_Cast.TabIndex = 71;
             this.com_Cast.UseSelectable = true;
+            this.com_Cast.ValueMember = "CastID";
+            this.com_Cast.SelectedIndexChanged += new System.EventHandler(this.com_Cast_SelectedIndexChanged);
+            // 
+            // castBindingSource
+            // 
+            this.castBindingSource.DataMember = "Cast";
+            this.castBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // metroLabel19
             // 
@@ -1116,10 +1139,24 @@
             this.com_Section.TabIndex = 77;
             this.com_Section.UseSelectable = true;
             // 
+            // castTableAdapter
+            // 
+            this.castTableAdapter.ClearBeforeFill = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(808, 245);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(79, 21);
+            this.comboBox1.TabIndex = 78;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // ucAddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.com_Section);
             this.Controls.Add(this.metroLabel32);
             this.Controls.Add(this.metroTextBox2);
@@ -1193,6 +1230,8 @@
             this.Name = "ucAddStudent";
             this.Size = new System.Drawing.Size(1317, 656);
             this.Load += new System.EventHandler(this.ucAddStudent_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.castBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1271,5 +1310,9 @@
         private MetroFramework.Controls.MetroLabel metroLabel31;
         private MetroFramework.Controls.MetroLabel metroLabel32;
         private MetroFramework.Controls.MetroComboBox com_Section;
+        private System.Windows.Forms.BindingSource castBindingSource;
+        private DatabaseDataSet databaseDataSet;
+        private DatabaseDataSetTableAdapters.CastTableAdapter castTableAdapter;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

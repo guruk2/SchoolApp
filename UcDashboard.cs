@@ -19,14 +19,12 @@ namespace SchoolApp
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            if(!FrmMain.Instance.MetroContainer.Controls.ContainsKey("ucAddStudent"))
-            {
-                ucAddStudent uc = new ucAddStudent();
-                uc.Dock = DockStyle.Fill;
-                FrmMain.Instance.MetroContainer.Controls.Add(uc);
-            }
-            FrmMain.Instance.MetroContainer.Controls["ucAddStudent"].BringToFront();
-            FrmMain.Instance.MetroBack.Visible = true;
+            Test uc = new Test();
+               uc.Show();
+            
+             
+
+
         }
 
         private void metroLink1_Click(object sender, EventArgs e)
@@ -35,6 +33,7 @@ namespace SchoolApp
             {
                 ucClass uc = new ucClass();
                 uc.Dock = DockStyle.Fill;
+                
                 FrmMain.Instance.MetroContainer.Controls.Add(uc);
             }
             FrmMain.Instance.MetroContainer.Controls["ucClass"].BringToFront();
