@@ -19,12 +19,15 @@ namespace SchoolApp
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            Test uc = new Test();
-               uc.Show();
+            AddStudent a = new AddStudent();
+            a.ShowDialog();
+
+               /* ucAddStudent uc = new ucAddStudent();
+                uc.Dock = DockStyle.Fill;
+                FrmMain.Instance.MetroContainer.Controls.Add(uc);
             
-             
-
-
+            FrmMain.Instance.MetroContainer.Controls["ucAddStudent"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;*/
         }
 
         private void metroLink1_Click(object sender, EventArgs e)
@@ -33,7 +36,6 @@ namespace SchoolApp
             {
                 ucClass uc = new ucClass();
                 uc.Dock = DockStyle.Fill;
-                
                 FrmMain.Instance.MetroContainer.Controls.Add(uc);
             }
             FrmMain.Instance.MetroContainer.Controls["ucClass"].BringToFront();
@@ -75,5 +77,50 @@ namespace SchoolApp
             FrmMain.Instance.MetroContainer.Controls["usReligion"].BringToFront();
             FrmMain.Instance.MetroBack.Visible = true;
         }
+
+        private void metroTile4_Click(object sender, EventArgs e)
+        {
+            FrmClassData cd = new FrmClassData();
+            cd.ShowDialog();
+            
+            //    ucClassData uc = new ucClassData();
+            //    uc.Dock = DockStyle.Fill;
+            //    FrmMain.Instance.MetroContainer.Controls.Add(uc);
+            
+            //FrmMain.Instance.MetroContainer.Controls["ucClassData"].BringToFront();
+            //FrmMain.Instance.MetroBack.Visible = true;
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            FrmStudentDetails sd = new FrmStudentDetails();
+            sd.ShowDialog();
+            //ucStudentDetails uc = new ucStudentDetails();
+            //uc.Dock = DockStyle.Fill;
+            //FrmMain.Instance.MetroContainer.Controls.Add(uc);
+
+            //FrmMain.Instance.MetroContainer.Controls["ucStudentDetails"].BringToFront();
+            //FrmMain.Instance.MetroBack.Visible = true;
+        }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            ucStudentFee uc = new ucStudentFee();
+            uc.Dock = DockStyle.Fill;
+            FrmMain.Instance.MetroContainer.Controls.Add(uc);
+
+            FrmMain.Instance.MetroContainer.Controls["ucStudentFee"].BringToFront();
+            FrmMain.Instance.MetroBack.Visible = true;
+        }
+
+        private void UcDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLink5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-}
+ }

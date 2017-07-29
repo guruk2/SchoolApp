@@ -70,5 +70,30 @@ namespace SchoolApp
         {
             this.Close();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                OleDbCommand command = new OleDbCommand();
+                command.Connection = connection;
+                command.CommandText = "select Acadamicdate from AcadamicYear";
+                OleDbDataReader reader = command.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    connection.Close();
+                    AcadamicYear a = new AcadamicYear();
+                    a.ShowDialog();
+                }
+                connection.Close();
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+        }
     }
 }

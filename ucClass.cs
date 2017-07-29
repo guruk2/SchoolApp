@@ -18,6 +18,7 @@ namespace SchoolApp
         static string connectionString = ConfigurationManager.ConnectionStrings["SchoolApp.Properties.Settings.Setting"].ConnectionString;
         private OleDbConnection connection = new OleDbConnection(connectionString);
         Dictionary<int, string> myDictionary2 = new Dictionary<int, string>();
+       
         public ucClass()
         {
             InitializeComponent();
@@ -38,22 +39,11 @@ namespace SchoolApp
                     command.Connection = connection;
 
                     string sql = "Insert into Class (ClassName) values ('" + txt_classname.Text + "')";
-                    string sql1 = "SELECT ClassID , ClassName from Class";
-
+                   
                     command.CommandText = sql;
                     command.ExecuteNonQuery();
                     MessageBox.Show("Data saved");
-                   
-                    command.CommandText = sql1;
-                    OleDbDataReader reader = command.ExecuteReader();
-                    Dictionary<int, string> myDictionary = new Dictionary<int, string>();
-                    while (reader.Read())
-                    {
-                        myDictionary.Add(reader.GetInt32(0), reader.GetString(1));
-                        com_classname.DataSource = new BindingSource(myDictionary, null);
-                        com_classname.DisplayMember = "Value";
-                        com_classname.ValueMember = "Key";
-                    }
+                  
                     connection.Close();
                 }
             }
@@ -71,27 +61,7 @@ namespace SchoolApp
 
         private void ucClass_Load(object sender, EventArgs e)
         {
-            try
-            {
-                connection.Open();
-                OleDbCommand command1 = new OleDbCommand();
-                command1.Connection = connection;
-                command1.CommandText = "SELECT ClassID , ClassName from Class";
-                OleDbDataReader reader = command1.ExecuteReader();
-               
-                while (reader.Read())
-                {
-                    myDictionary2.Add(reader.GetInt32(0), reader.GetString(1));
-                    com_classname.DataSource = new BindingSource(myDictionary2, null);
-                    com_classname.DisplayMember = "Value";
-                    com_classname.ValueMember = "Key";
-                }
-                connection.Close();
-            }
-            catch (OleDbException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            classandSection();
         }
 
         private void btn_AddClassSection_Click(object sender, EventArgs e)
@@ -112,13 +82,79 @@ namespace SchoolApp
                     value = myDictionary2.FirstOrDefault(x => x.Value == com_classname.Text).Key;
                     command.CommandText = "Insert into Classandsection ([ClassID] , [Class] , [Section]) values ('" + Convert.ToString(value) + "' , '" + com_classname.Text + "' , '" + txt_sectionname.Text + "')";
                     command.ExecuteNonQuery();
+                    myDictionary2.Clear();
                     MessageBox.Show("Data saved");
+                    
                     connection.Close();
+                    classandSection();
                 }
                 catch (OleDbException ex)
                 {
                     MessageBox.Show(ex.Message);
+                    connection.Close();
                 }
+            }
+        }
+
+        private void com_classname_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void com_classname_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                OleDbCommand command1 = new OleDbCommand();
+                command1.Connection = connection;
+                command1.CommandText = "SELECT ClassID , ClassName from Class";
+                OleDbDataReader reader = command1.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    myDictionary2.Add(reader.GetInt32(0), reader.GetString(1));
+                    com_classname.DataSource = new BindingSource(myDictionary2, null);
+                    com_classname.DisplayMember = "Value";
+                    com_classname.ValueMember = "Key";
+                }
+                connection.Close();
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+        }
+
+        public void classandSection()
+        {
+            try
+            {
+                List<ClassandSection> queryResults = new List<ClassandSection>();
+                connection.Open();
+                OleDbCommand command5 = new OleDbCommand();
+                command5.Connection = connection;
+                string clas5 = "Select [Class] , [Section] from [Classandsection]";
+                command5.CommandText = clas5;
+                using (var myReader = command5.ExecuteReader())
+                {
+                    while (myReader.Read())
+                    {
+                        queryResults.Add(new ClassandSection
+                        {
+                            classname = myReader.GetString(myReader.GetOrdinal("Class")),
+                            Section = myReader.GetString(myReader.GetOrdinal("Section"))
+                        });
+                    }
+                }
+                this.dataGridView1.DataSource = queryResults;
+                connection.Close();
+            }
+            catch (OleDbException ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
             }
         }
     }

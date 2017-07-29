@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -77,7 +76,7 @@
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txt_MotherName = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel27 = new MetroFramework.Controls.MetroLabel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btn_AddStudent = new MetroFramework.Controls.MetroButton();
             this.btn_image = new MetroFramework.Controls.MetroButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,20 +90,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.com_Cast = new MetroFramework.Controls.MetroComboBox();
-            this.castBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSet = new SchoolApp.DatabaseDataSet();
             this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_fatheroccupation = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.txt_fathersalary = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel31 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel32 = new MetroFramework.Controls.MetroLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.com_Section = new MetroFramework.Controls.MetroComboBox();
-            this.castTableAdapter = new SchoolApp.DatabaseDataSetTableAdapters.CastTableAdapter();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.castBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -846,15 +839,15 @@
             this.metroLabel27.TabIndex = 54;
             this.metroLabel27.Text = "MOTHER\'S NAME";
             // 
-            // metroButton1
+            // btn_AddStudent
             // 
-            this.metroButton1.Location = new System.Drawing.Point(490, 609);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 56;
-            this.metroButton1.Text = "Add";
-            this.metroButton1.UseSelectable = true;
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            this.btn_AddStudent.Location = new System.Drawing.Point(490, 609);
+            this.btn_AddStudent.Name = "btn_AddStudent";
+            this.btn_AddStudent.Size = new System.Drawing.Size(75, 23);
+            this.btn_AddStudent.TabIndex = 56;
+            this.btn_AddStudent.Text = "Add";
+            this.btn_AddStudent.UseSelectable = true;
+            this.btn_AddStudent.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // btn_image
             // 
@@ -1000,10 +993,6 @@
             // 
             // com_Cast
             // 
-            this.com_Cast.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.castBindingSource, "CastName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.com_Cast.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.castBindingSource, "CastID", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.com_Cast.DataSource = this.castBindingSource;
-            this.com_Cast.DisplayMember = "CastName";
             this.com_Cast.FormattingEnabled = true;
             this.com_Cast.ItemHeight = 23;
             this.com_Cast.Location = new System.Drawing.Point(1158, 371);
@@ -1011,18 +1000,6 @@
             this.com_Cast.Size = new System.Drawing.Size(121, 29);
             this.com_Cast.TabIndex = 71;
             this.com_Cast.UseSelectable = true;
-            this.com_Cast.ValueMember = "CastID";
-            this.com_Cast.SelectedIndexChanged += new System.EventHandler(this.com_Cast_SelectedIndexChanged);
-            // 
-            // castBindingSource
-            // 
-            this.castBindingSource.DataMember = "Cast";
-            this.castBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // databaseDataSet
-            // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // metroLabel19
             // 
@@ -1033,35 +1010,35 @@
             this.metroLabel19.TabIndex = 70;
             this.metroLabel19.Text = "CAST";
             // 
-            // metroTextBox1
+            // txt_fatheroccupation
             // 
             // 
             // 
             // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(137, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(770, 437);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(159, 23);
-            this.metroTextBox1.TabIndex = 73;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txt_fatheroccupation.CustomButton.Image = null;
+            this.txt_fatheroccupation.CustomButton.Location = new System.Drawing.Point(137, 1);
+            this.txt_fatheroccupation.CustomButton.Name = "";
+            this.txt_fatheroccupation.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txt_fatheroccupation.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txt_fatheroccupation.CustomButton.TabIndex = 1;
+            this.txt_fatheroccupation.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txt_fatheroccupation.CustomButton.UseSelectable = true;
+            this.txt_fatheroccupation.CustomButton.Visible = false;
+            this.txt_fatheroccupation.Lines = new string[0];
+            this.txt_fatheroccupation.Location = new System.Drawing.Point(770, 437);
+            this.txt_fatheroccupation.MaxLength = 32767;
+            this.txt_fatheroccupation.Name = "txt_fatheroccupation";
+            this.txt_fatheroccupation.PasswordChar = '\0';
+            this.txt_fatheroccupation.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_fatheroccupation.SelectedText = "";
+            this.txt_fatheroccupation.SelectionLength = 0;
+            this.txt_fatheroccupation.SelectionStart = 0;
+            this.txt_fatheroccupation.ShortcutsEnabled = true;
+            this.txt_fatheroccupation.Size = new System.Drawing.Size(159, 23);
+            this.txt_fatheroccupation.TabIndex = 73;
+            this.txt_fatheroccupation.UseSelectable = true;
+            this.txt_fatheroccupation.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txt_fatheroccupation.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel30
             // 
@@ -1072,35 +1049,35 @@
             this.metroLabel30.TabIndex = 72;
             this.metroLabel30.Text = "FATHER\'S OCCUPATION";
             // 
-            // metroTextBox2
+            // txt_fathersalary
             // 
             // 
             // 
             // 
-            this.metroTextBox2.CustomButton.Image = null;
-            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(109, 1);
-            this.metroTextBox2.CustomButton.Name = "";
-            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox2.CustomButton.TabIndex = 1;
-            this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox2.CustomButton.UseSelectable = true;
-            this.metroTextBox2.CustomButton.Visible = false;
-            this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(964, 437);
-            this.metroTextBox2.MaxLength = 32767;
-            this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.PasswordChar = '\0';
-            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox2.SelectedText = "";
-            this.metroTextBox2.SelectionLength = 0;
-            this.metroTextBox2.SelectionStart = 0;
-            this.metroTextBox2.ShortcutsEnabled = true;
-            this.metroTextBox2.Size = new System.Drawing.Size(131, 23);
-            this.metroTextBox2.TabIndex = 75;
-            this.metroTextBox2.UseSelectable = true;
-            this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txt_fathersalary.CustomButton.Image = null;
+            this.txt_fathersalary.CustomButton.Location = new System.Drawing.Point(109, 1);
+            this.txt_fathersalary.CustomButton.Name = "";
+            this.txt_fathersalary.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txt_fathersalary.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txt_fathersalary.CustomButton.TabIndex = 1;
+            this.txt_fathersalary.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txt_fathersalary.CustomButton.UseSelectable = true;
+            this.txt_fathersalary.CustomButton.Visible = false;
+            this.txt_fathersalary.Lines = new string[0];
+            this.txt_fathersalary.Location = new System.Drawing.Point(964, 437);
+            this.txt_fathersalary.MaxLength = 32767;
+            this.txt_fathersalary.Name = "txt_fathersalary";
+            this.txt_fathersalary.PasswordChar = '\0';
+            this.txt_fathersalary.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_fathersalary.SelectedText = "";
+            this.txt_fathersalary.SelectionLength = 0;
+            this.txt_fathersalary.SelectionStart = 0;
+            this.txt_fathersalary.ShortcutsEnabled = true;
+            this.txt_fathersalary.Size = new System.Drawing.Size(131, 23);
+            this.txt_fathersalary.TabIndex = 75;
+            this.txt_fathersalary.UseSelectable = true;
+            this.txt_fathersalary.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txt_fathersalary.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel31
             // 
@@ -1121,14 +1098,6 @@
             this.metroLabel32.TabIndex = 76;
             this.metroLabel32.Text = "p.a.";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(1073, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 149);
-            this.pictureBox1.TabIndex = 57;
-            this.pictureBox1.TabStop = false;
-            // 
             // com_Section
             // 
             this.com_Section.FormattingEnabled = true;
@@ -1139,29 +1108,23 @@
             this.com_Section.TabIndex = 77;
             this.com_Section.UseSelectable = true;
             // 
-            // castTableAdapter
+            // pictureBox1
             // 
-            this.castTableAdapter.ClearBeforeFill = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(808, 245);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 21);
-            this.comboBox1.TabIndex = 78;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.pictureBox1.Location = new System.Drawing.Point(1073, 90);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 149);
+            this.pictureBox1.TabIndex = 57;
+            this.pictureBox1.TabStop = false;
             // 
             // ucAddStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.com_Section);
             this.Controls.Add(this.metroLabel32);
-            this.Controls.Add(this.metroTextBox2);
+            this.Controls.Add(this.txt_fathersalary);
             this.Controls.Add(this.metroLabel31);
-            this.Controls.Add(this.metroTextBox1);
+            this.Controls.Add(this.txt_fatheroccupation);
             this.Controls.Add(this.metroLabel30);
             this.Controls.Add(this.com_Cast);
             this.Controls.Add(this.metroLabel19);
@@ -1178,7 +1141,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_image);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.btn_AddStudent);
             this.Controls.Add(this.txt_MotherName);
             this.Controls.Add(this.metroLabel27);
             this.Controls.Add(this.com_Transport);
@@ -1230,8 +1193,6 @@
             this.Name = "ucAddStudent";
             this.Size = new System.Drawing.Size(1317, 656);
             this.Load += new System.EventHandler(this.ucAddStudent_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.castBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1288,7 +1249,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroTextBox txt_MotherName;
         private MetroFramework.Controls.MetroLabel metroLabel27;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton btn_AddStudent;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroButton btn_image;
         private System.Windows.Forms.Label label2;
@@ -1304,15 +1265,11 @@
         private System.Windows.Forms.Label label11;
         private MetroFramework.Controls.MetroComboBox com_Cast;
         private MetroFramework.Controls.MetroLabel metroLabel19;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox txt_fatheroccupation;
         private MetroFramework.Controls.MetroLabel metroLabel30;
-        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroTextBox txt_fathersalary;
         private MetroFramework.Controls.MetroLabel metroLabel31;
         private MetroFramework.Controls.MetroLabel metroLabel32;
         private MetroFramework.Controls.MetroComboBox com_Section;
-        private System.Windows.Forms.BindingSource castBindingSource;
-        private DatabaseDataSet databaseDataSet;
-        private DatabaseDataSetTableAdapters.CastTableAdapter castTableAdapter;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

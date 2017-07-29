@@ -41,11 +41,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.com_classname = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_addexpense
             // 
-            this.btn_addexpense.Location = new System.Drawing.Point(218, 197);
+            this.btn_addexpense.Location = new System.Drawing.Point(226, 236);
             this.btn_addexpense.Name = "btn_addexpense";
             this.btn_addexpense.Size = new System.Drawing.Size(75, 23);
             this.btn_addexpense.TabIndex = 10;
@@ -68,7 +73,7 @@
             this.txt_expensestype.CustomButton.UseSelectable = true;
             this.txt_expensestype.CustomButton.Visible = false;
             this.txt_expensestype.Lines = new string[0];
-            this.txt_expensestype.Location = new System.Drawing.Point(228, 137);
+            this.txt_expensestype.Location = new System.Drawing.Point(236, 176);
             this.txt_expensestype.MaxLength = 32767;
             this.txt_expensestype.Name = "txt_expensestype";
             this.txt_expensestype.PasswordChar = '\0';
@@ -86,18 +91,20 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(113, 138);
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel3.Location = new System.Drawing.Point(118, 177);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(103, 19);
             this.metroLabel3.TabIndex = 8;
             this.metroLabel3.Text = "Expense Type:";
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel1.Location = new System.Drawing.Point(48, 65);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(59, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(67, 19);
             this.metroLabel1.TabIndex = 7;
             this.metroLabel1.Text = "Expense:";
             this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
@@ -145,27 +152,30 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(622, 180);
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.Location = new System.Drawing.Point(612, 180);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(110, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(124, 19);
             this.metroLabel2.TabIndex = 12;
             this.metroLabel2.Text = "Expense Amount:";
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.metroLabel4.Location = new System.Drawing.Point(550, 65);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(113, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(130, 19);
             this.metroLabel4.TabIndex = 11;
             this.metroLabel4.Text = "Expense Payment:";
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(622, 137);
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel5.Location = new System.Drawing.Point(632, 138);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(103, 19);
             this.metroLabel5.TabIndex = 15;
             this.metroLabel5.Text = "Expense Type:";
             // 
@@ -178,6 +188,7 @@
             this.com_expensetype.Size = new System.Drawing.Size(155, 29);
             this.com_expensetype.TabIndex = 16;
             this.com_expensetype.UseSelectable = true;
+            this.com_expensetype.Click += new System.EventHandler(this.com_expensetype_Click);
             // 
             // label1
             // 
@@ -185,7 +196,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(389, 137);
+            this.label1.Location = new System.Drawing.Point(397, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 20);
             this.label1.TabIndex = 18;
@@ -216,10 +227,55 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "*";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(376, 137);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 20);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "*";
+            // 
+            // com_classname
+            // 
+            this.com_classname.FormattingEnabled = true;
+            this.com_classname.ItemHeight = 23;
+            this.com_classname.Location = new System.Drawing.Point(236, 136);
+            this.com_classname.Name = "com_classname";
+            this.com_classname.Size = new System.Drawing.Size(134, 29);
+            this.com_classname.TabIndex = 22;
+            this.com_classname.UseSelectable = true;
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel6.Location = new System.Drawing.Point(118, 137);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(118, 19);
+            this.metroLabel6.TabIndex = 21;
+            this.metroLabel6.Text = "Standard Name:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(317, 308);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(419, 150);
+            this.dataGridView1.TabIndex = 24;
+            // 
             // ucFee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.com_classname);
+            this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -236,6 +292,7 @@
             this.Name = "ucFee";
             this.Size = new System.Drawing.Size(983, 519);
             this.Load += new System.EventHandler(this.ucFee_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +313,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private MetroFramework.Controls.MetroComboBox com_classname;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
